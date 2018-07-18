@@ -1,3 +1,11 @@
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - db/migrate/*
+    - config/**/*
+    - bin/*
+    - lib/tasks/**/*
+
 Bundler/OrderedGems:
   Exclude:
     - 'Gemfile'
@@ -13,24 +21,12 @@ Style/BlockComments:
 Style/Documentation:
   Enabled: false
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 Style/ExpandPathArguments:
   Exclude:
-    - 'bin/rails'
-    - 'bin/rake'
     - 'spec/rails_helper.rb'
-
-Style/MixinUsage:
-  Exclude:
-    - 'bin/setup'
-    - 'bin/update'
-
-Style/RedundantBegin:
-  Exclude:
-    - 'bin/yarn'
-
-Style/StderrPuts:
-  Exclude:
-    - 'bin/yarn'
 
 Style/SymbolArray:
   EnforcedStyle: brackets
