@@ -18,12 +18,6 @@ Style/BlockComments:
   Exclude:
     - 'spec/spec_helper.rb'
 
-Style/Documentation:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
 Style/ExpandPathArguments:
   Exclude:
     - 'spec/rails_helper.rb'
@@ -33,3 +27,12 @@ Style/SymbolArray:
 
 Metrics/LineLength:
   Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
