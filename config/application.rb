@@ -27,5 +27,7 @@ module SITS
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    Sidekiq::Extensions.enable_delay!
   end
 end

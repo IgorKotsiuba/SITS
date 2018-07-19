@@ -3,7 +3,7 @@ class Customer::Ticket::Create < Trailblazer::Operation
   step Contract::Validate()
   step Contract::Persist(method: :sync)
   step :persist!
-  # step :notify_customer!
+  step :notify_customer!
   failure :log_error!
 
   def persist!(_options, model:, params:, **)
@@ -15,7 +15,7 @@ class Customer::Ticket::Create < Trailblazer::Operation
   end
 
   def notify_customer!(_options, model:, **)
-    # TODO
+    CustomerMailer.delay.ticket_confirmation(model.id)
   end
 
   def log_error!(_options, **)

@@ -1,0 +1,6 @@
+h2 Dear #{@ticket.customer_name}
+p By this letter, we inform you that your request has been successfully delivered to our support team.
+p Please, feel free to check ticket's history or update it proceeding through the following link:
+= link_to 'Check Ticket History', ticket_url(@ticket)
+p Best regards.
+p Support team.
