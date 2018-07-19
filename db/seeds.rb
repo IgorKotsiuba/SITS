@@ -4,3 +4,7 @@ manager_data.each do |manager|
 end
 
 FactoryBot.create(:ticket)
+
+department_names = ['Cell Phones', 'TV & Home Theaters', 'Musical Instruments', 'Computers & Tablets']
+
+department_names.each { |name| Department.create(name: name) }
