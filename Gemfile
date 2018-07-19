@@ -20,8 +20,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml'
 gem 'simple_form'
 
-gem 'dry-validation'
-
 gem 'trailblazer', '>= 2.0.3'
 gem 'trailblazer-rails'
 gem 'trailblazer-cells'

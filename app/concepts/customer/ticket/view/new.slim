@@ -1,0 +1,8 @@
+= simple_form_for contract, url: contract.model do |f|
+  = f.input :customer_name, label: 'Contact Name'
+  = f.input :customer_email, label: 'Contact Email'
+  hr
+  = f.input :subject
+  = f.input :department_id, collection: departments, prompt: 'Select department'
+  = f.input :body, as: :text
+  = f.button :submit, 'Submit'
