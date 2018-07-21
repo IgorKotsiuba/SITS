@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Customer::TicketsController, type: :controller do
+  let(:department) { create :department }
+
   describe 'GET #new' do
     before { get :new }
 
@@ -16,7 +18,7 @@ RSpec.describe Customer::TicketsController, type: :controller do
             customer_email: 'test@example.com',
             subject:        'Problem with Cell Pnone',
             body:           'I run out of money',
-            department_id:  1
+            department_id:   department.id
           }
         }
       end
@@ -29,8 +31,7 @@ RSpec.describe Customer::TicketsController, type: :controller do
     context 'invalid params' do
       let(:params) do
         {
-          ticket: {
-          }
+          ticket: {}
         }
       end
 

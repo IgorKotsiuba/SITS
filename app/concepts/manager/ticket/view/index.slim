@@ -1,0 +1,11 @@
+h2 Tickets
+table
+  thead
+    th ID
+    th Subject
+    th Customer Name
+    th Customer Email
+    th Manager
+    th Last Activity
+  tbody
+    = cell('manager/ticket/cell/row_item', collection: collection)
