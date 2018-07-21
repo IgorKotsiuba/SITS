@@ -1,6 +1,6 @@
-module Customer::Ticket
+module Manager::Session
   class Build < Trailblazer::Operation
-    step Model(::Ticket, :new)
+    step Model(::Manager, :new)
     step Contract::Build(constant: CreateContract)
   end
 end
