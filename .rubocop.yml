@@ -36,3 +36,13 @@ Style/FrozenStringLiteralComment:
 
 Style/ClassAndModuleChildren:
   Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+  Exclude:
+    - '**/*_spec.rb'
+
+Style/BlockDelimiters:
+  Enabled: false
+  Exclude:
+    - '**/*_spec.rb'
