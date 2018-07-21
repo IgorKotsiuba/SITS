@@ -1,26 +1,25 @@
-class Customer::TicketsController < ApplicationController
-  def new
-    run Customer::Ticket::Build
-    render concept(Customer::Ticket::Cell::New, OpenStruct.new(contract: @form))
-  end
+module Customer
+  class TicketsController < ApplicationController
+    def new
+      run Ticket::Build
+      render concept(Ticket::Cell::New, @form)
+    end
 
-  def create
-    # DOESNT WORK YET
-    # run Customer::Ticket::Create do
-    #   return redirect_to @model
-    # end
-    result = Customer::Ticket::Create.call(permited_params)
+    def create
+      run Ticket::Create do
+        return redirect_to @model
+      end
 
-    return redirect_to result['model'] if result.success?
-    render concept(Customer::Ticket::Cell::New, OpenStruct.new(contract: @form))
-  end
+      render concept(Ticket::Cell::New, @form)
+    end
 
-  def show
-    run Customer::Ticket::Show
-    render concept(Customer::Ticket::Cell::Show, @model)
-  end
+    def show
+      run Ticket::Show
+      render concept(Ticket::Cell::Show, @model)
+    end
 
-  def permited_params
-    params.require(:ticket).permit(:customer_name, :customer_email, :subject, :body, :department_id)
+    def permited_params
+      params.require(:ticket).permit(:customer_name, :customer_email, :subject, :body, :department_id)
+    end
   end
 end

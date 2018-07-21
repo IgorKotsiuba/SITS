@@ -1,10 +1,12 @@
-class Customer::Ticket::Cell::New < Trailblazer::Cell
-  include SimpleForm::ActionViewExtensions::FormHelper
-  include ActionView::Helpers::FormOptionsHelper
+module Customer::Ticket::Cell
+  class New < Trailblazer::Cell
+    include SimpleForm::ActionViewExtensions::FormHelper
+    include ActionView::Helpers::FormOptionsHelper
 
-  property :contract
+    property :contract
 
-  def departments
-    Department.all
+    def departments
+      Department.all
+    end
   end
 end
