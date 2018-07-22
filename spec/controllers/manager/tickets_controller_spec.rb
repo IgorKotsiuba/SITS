@@ -14,6 +14,15 @@ describe Manager::TicketsController, type: :controller do
       before { get :index }
       it { expect(response).to be_successful }
     end
+
+    context 'search by reference_uuid' do
+      let!(:ticket) { create :ticket }
+
+      before { sign_in manager, :manager }
+      before { get :index, params: { query: ticket.reference_uuid } }
+
+      it { expect(response).to redirect_to manager_ticket_path(ticket) }
+    end
   end
 
   describe 'GET #show' do

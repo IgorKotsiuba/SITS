@@ -3,7 +3,11 @@ class Manager::TicketsController < Manager::BaseController
 
   def index
     run ::Manager::Ticket::Index
-    render concept(::Manager::Ticket::Cell::Index, OpenStruct.new(collection: result['collection']))
+
+    return redirect_to [:manager, result['ticket_by_query']] if result['ticket_by_query'].present?
+    render concept(::Manager::Ticket::Cell::Index,
+                   OpenStruct.new(item_search: result['item_search'],
+                                  collection: result['collection']))
   end
 
   def show
