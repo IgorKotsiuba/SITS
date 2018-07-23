@@ -46,3 +46,6 @@ Style/BlockDelimiters:
   Enabled: false
   Exclude:
     - '**/*_spec.rb'
+
+Style/Lambda:
+  Enabled: false

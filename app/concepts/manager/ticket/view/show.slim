@@ -5,3 +5,7 @@ p Request created at: #{created_at}
 h3= subject
 p= body
 p
+hr
+= cell('manager/message/cell/new', message_form)
+hr
+= cell('manager/message/cell/row_item', collection: messages)

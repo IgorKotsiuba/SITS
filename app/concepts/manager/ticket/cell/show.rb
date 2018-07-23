@@ -10,5 +10,13 @@ module Manager::Ticket::Cell
     def department
       model.department.name
     end
+
+    def message_form
+      OpenStruct.new(contract: options[:contract_message], url: model)
+    end
+
+    def messages
+      model.messages.includes(:author).order(created_at: :desc)
+    end
   end
 end

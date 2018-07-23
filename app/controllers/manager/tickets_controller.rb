@@ -12,6 +12,11 @@ class Manager::TicketsController < Manager::BaseController
 
   def show
     run ::Manager::Ticket::Show
-    render concept(::Manager::Ticket::Cell::Show, @model)
+    render concept(::Manager::Ticket::Cell::Show, @model, contract_message: result['contract.message'])
+  end
+
+  def update
+    result = Manager::Ticket::Update.call(params, current_manager: current_manager)
+    redirect_to manager_ticket_url(result['model'])
   end
 end
