@@ -43,4 +43,20 @@ describe Manager::TicketsController, type: :controller do
       end
     end
   end
+
+  describe 'PUT #update' do
+    let!(:ticket) { create :ticket }
+
+    before { sign_in manager, :manager }
+
+    context 'success' do
+      let(:params) do
+        { reference_uuid: ticket.reference_uuid, message: { text: 'Answer from manager' } }
+      end
+
+      before { put :update, params: params }
+
+      it { expect(response).to redirect_to [:manager, Ticket.last] }
+    end
+  end
 end
