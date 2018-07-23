@@ -17,9 +17,5 @@ module Customer
       run Ticket::Show
       render concept(Ticket::Cell::Show, @model)
     end
-
-    def permited_params
-      params.require(:ticket).permit(:customer_name, :customer_email, :subject, :body, :department_id)
-    end
   end
 end

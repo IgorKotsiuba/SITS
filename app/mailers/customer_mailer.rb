@@ -3,4 +3,10 @@ class CustomerMailer < ApplicationMailer
     @ticket = Ticket.find(ticket_id)
     mail to: @ticket.customer_email, subject: 'Ticket Request Confirmation'
   end
+
+  def ticket_notification(message_id)
+    @message = Message.find(message_id)
+    @ticket  = @message.ticket
+    mail to: @ticket.customer_email, subject: 'Ticket Request Notification'
+  end
 end

@@ -4,8 +4,6 @@
 * Rails 5.2.0
 * Redis
 
-### System dependencies
-
 ### Configuration
 
   ```sh
@@ -31,3 +29,6 @@
     $ bundle exec rspec spec
   ```
 
+### Usage
+
+Login as manager: `localhost:3000/manager`
